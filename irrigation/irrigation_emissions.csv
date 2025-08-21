@@ -1,0 +1,6 @@
+Irri_meas_unit,H2O_irri,Conv_mm_m3,A_irri,A,Method,Power source,Region,Emission Factor,kg CO2e
+mm,0,10,0.5,10,Surface,Electricity,GLO U,0.3445,0.0
+mm,1,10,0.5,10,Surface,Electricity,GLO U,0.3445,17.224999999999998
+mm,7,10,0.5,10,Surface,Diesel,GLO U,0.3418,119.63
+mm,4,10,0.5,10,Surface,Electricity,GLO U,0.3445,68.89999999999999
+mm,3,10,0.5,10,Surface,Diesel,GLO U,0.3418,51.269999999999996

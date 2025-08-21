@@ -28,8 +28,6 @@ import pandas as pd
 # Import numpy to vectorize functions 
 import numpy as np
 
-# Import pytest for unit tests, allows us to test the code is not going to produce invalid values
-import pytest as pt
 
 #===============================================================================================
 #===============================================================================================
@@ -51,7 +49,7 @@ import pytest as pt
 
 # Proportion of area irrigated (dimensionless)
 
-A_irri = 0.5
+A_irri = 0.5 
 
 
 # Area of the assessment[ha]
@@ -87,18 +85,18 @@ Region_irri = "GLO U"
 
 # Choose measuring unit for irrigation (COMMENT OUT UNUSED ONE!!!)
 
-#irrigation_meas_unit = "mm"
-irrigation_meas_unit = "m3"
+irrigation_meas_unit = "mm"
+#irrigation_meas_unit = "m3"
 
 
 # Irrigation events measured as depth [mm]
 
-D_irri_mm = np.array([2, 1, 7, 4, 3])
+D_irri_mm = np.array([0, 1, 7, 4, 3])
 
 
 # ALTERNATIVELY irrigation events measured as volume [m3]
 
-V_irri_m3 = np.array([20, 10, 70, 40, 30])
+V_irri_m3 = np.array([0, 10, 70, 40, 30])
 
 
 # END Irrigation events
@@ -144,17 +142,17 @@ Power_irri = ["Electricity", "Electricity", "Diesel", "Electricity", "Diesel"]
 # Choose irrigation input for model and transform into data frame (for merging/joining with
 # power source data
 
-if irrigation_meas_unit == "mm":
+if irrigation_meas_unit == "mm": # If irrigation is measured in mm
     H2O_irri = D_irri_mm
 
 
-if irrigation_meas_unit == "m3":
+if irrigation_meas_unit == "m3": # If irrigation is measured in m3
     H2O_irri = V_irri_m3
 
 
 # Define vector with default power source
 
-if not Power_irri:
+if not Power_irri: # If no power source is defined, use default
     Power_irri = [default_power] * len(H2O_irri)
 
 
@@ -373,6 +371,9 @@ model_test_df = model_input_df.drop('index', axis = 1)
 print(model_test_df)
 
 print("Total modelled emissions for all irrigation events = " + Irrig_emiss + " kg CO2e")
+
+# Save model input and output data frame to csv file
+model_test_df.to_csv("irrigation_emissions.csv", index=False)   
 
 
 #===============================================================================================
