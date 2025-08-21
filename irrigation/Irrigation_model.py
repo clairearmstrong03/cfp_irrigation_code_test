@@ -18,8 +18,8 @@
 
 # Import os module and set working directory
 import os
-#os.chdir(r"/home/pro/projects/CoolFarmAlliance/Modeling_exercise/")
-
+os.chdir(r"C:/Users/carmstr5/Documents/py/cfp_irrigation_code_test/irrigation") # or local file path
+print("Current working directory:", os.getcwd())
 
 # Import pandas module to import csv table as a data frame data structure
 import pandas as pd
@@ -27,6 +27,9 @@ import pandas as pd
 
 # Import numpy to vectorize functions 
 import numpy as np
+
+# Import pytest for unit tests, allows us to test the code is not going to produce invalid values
+import pytest as pt
 
 #===============================================================================================
 #===============================================================================================
@@ -172,7 +175,7 @@ if not Power_irri:
 
 # Import table with emission factors as data frame
 
-ef_df = pd.read_csv(r"C:/Users/Methods/irrigation_test/Table 9.6.csv")
+ef_df = pd.read_csv(r"C:/Users/carmstr5/Documents/py/cfp_irrigation_code_test/irrigation/Table 9.6.csv",)
 
 
 # Rename column with Emission factors
@@ -250,7 +253,7 @@ if irrigation_meas_unit == "m3":
     conv_mm_m3 = ["ND"] * len(model_input_df.index)
 
 
-# Insert colomns with model inputs into data frame
+# Insert columns with model inputs into data frame
 model_input_df['Irri_meas_unit'] = irri_meas_unit
 model_input_df['Conv_mm_m3'] = conv_mm_m3
 model_input_df['A_irri'] = A_irri
